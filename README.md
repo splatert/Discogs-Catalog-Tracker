@@ -32,3 +32,7 @@ This userscript does not collect any data. We save any URLs you visit to a table
 
 4. The release you clicked on will turn transparent and have a status saying "Visited", meaning that you've visited this release.
 <img src="https://github.com/user-attachments/assets/7a6c7e99-4632-42bc-8f76-6bcbeb6a6413">
+
+
+## Troubleshooting
+The history button may not load sometimes to due it being loaded in a dynamic frame. You can bump up the seconds it takes for the userscript to load in if you're experiencing slow connection issues on Discogs.
