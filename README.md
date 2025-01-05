@@ -13,6 +13,10 @@ Userscript to keep track of releases that you view on Discogs.
 Install with a userscript manager of your choice (Tampermonkey, Greasemonkey, etc.).
 
 
+## Privacy Policy
+This userscript does not collect any data. We save any URLs you visit to a table in your browser's LocalStorage.
+
+
 ## Usage
 1. Click on an artist or release that interests you.
 
