@@ -7,3 +7,7 @@ Userscript to keep track of releases that you view on Discogs.
 ## Features
 - Save links for releases and artist pages.
 - Import and export history.
+
+
+## Installation
+Install with a userscript manager of your choice (Tampermonkey, Greasemonkey, etc.).
