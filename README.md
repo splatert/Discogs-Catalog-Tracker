@@ -35,4 +35,4 @@ This userscript does not collect any data. It saves any URLs you visit to a tabl
 
 
 ## Troubleshooting
-The history button may not load sometimes to due to the dynamic element it loads inside being missing. You can bump up the seconds it takes for the userscript to load in if you're experiencing slow connection issues on Discogs.
+The history button may not load sometimes to due to the dynamic element it loads inside of being missing. You can bump up the seconds it takes for the userscript to load in if you're experiencing slow connection issues on Discogs.
