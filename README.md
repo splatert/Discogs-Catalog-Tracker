@@ -30,7 +30,7 @@ This userscript does not collect any data. We save any URLs you visit to a table
 
 <img src="https://github.com/user-attachments/assets/87f93c2c-8987-40bf-8114-ce47d7556f00">
 
-4. The release you clicked on will turn transparent and have a status saying "Visited", meaning that you've visited this release.
+4. The release you click on will turn transparent and have a status saying "Visited", meaning that you've visited this release.
 <img src="https://github.com/user-attachments/assets/7a6c7e99-4632-42bc-8f76-6bcbeb6a6413">
 
 
