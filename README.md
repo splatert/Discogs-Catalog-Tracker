@@ -14,7 +14,7 @@ Install with a userscript manager of your choice (Tampermonkey, Greasemonkey, et
 
 
 ## Privacy Policy
-This userscript does not collect any data. We save any URLs you visit to a table in your browser's LocalStorage.
+This userscript does not collect any data. It saves any URLs you visit to a table in your browser's LocalStorage.
 
 
 ## Usage
