@@ -33,6 +33,8 @@ var catalogItemDomLink = 'link_1ctor';
 var otherVersions = 'versions_1t0s2';
 var filterBtn = 'filterButtonContainer_29Eug';
 var searchSortTop = 'sort_top';
+var pagerDiv = '_pager_14baz_1';
+var paginationDiv2 = 'paginationContainer_eb72D';
 
 
 var greyBtn = `
@@ -529,6 +531,7 @@ function drawIndicator(url, domLink) {
         var indicator = document.createElement('a');
         var img = document.createElement('img');
 
+        indicator.className = 'ctracker-visited';
         indicator.href = '#';
         indicator.style = "position: relative;top: 3px;margin-left: 5px;";
 
@@ -536,6 +539,9 @@ function drawIndicator(url, domLink) {
 
         indicator.appendChild(img);
         domLink.parentNode.insertBefore(indicator, domLink.nextSibling);
+    }
+    else {
+        domLink.parentNode.parentNode.style.opacity = 1;
     }
 }
 
@@ -575,6 +581,50 @@ function getPageType(){
 
 
 
+
+function pagerBtnEvents() {
+
+    function redraw() {
+        clearExistingVisitTags();
+
+        setTimeout(() => {
+            markVisitedItems();
+        }, scriptLoadTime * 1000);
+    }
+
+    var pager = document.getElementsByClassName(pagerDiv)[0];
+    var pager2 = document.getElementsByClassName(paginationDiv2)[0];
+
+    if (pager2) {
+        var btns = pager2.getElementsByTagName('button');
+        for (b in btns) {
+            btns[b].onclick = function(){
+                redraw();
+            }
+        }
+    }
+
+    if (pager) {
+        var btns = pager.getElementsByTagName('a');
+        for (b in btns) {
+            btns[b].onclick = function(){
+                redraw();
+            }
+        }
+    }
+}
+
+
+
+function clearExistingVisitTags(){
+    var tags = document.getElementsByClassName('ctracker-visited');
+    for (let i=tags.length; i--;) {
+        tags[i].remove();
+    }
+}
+
+
+
 (function() {
 
 
@@ -583,7 +633,9 @@ function getPageType(){
         getPageType();
         createHistoryButton();
         loadItems();
+        clearExistingVisitTags();
         markVisitedItems();
+        pagerBtnEvents();
 
         if (pageType == 'release') {
             var pageIsSaved = pageIsInHistory(window.location.href);
