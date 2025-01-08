@@ -5,6 +5,7 @@
 // @description  Keep track of releases you visit on Discogs label pages.
 // @author       splatert
 // @match        https://www.discogs.com/release/*
+// @match        https://www.discogs.com/master/*
 // @match        https://www.discogs.com/label/*
 // @match        https://www.discogs.com/artist/*
 // @match        https://www.discogs.com/search*
@@ -556,7 +557,7 @@ function getPageType(){
         splitUrl = splitUrl[1].split('/');
         splitUrl = splitUrl[0];
 
-        if (splitUrl == 'label' || splitUrl == 'release' || splitUrl == 'artist' || splitUrl == 'search') {
+        if (splitUrl == 'label' || splitUrl == 'release' || splitUrl == 'master' || splitUrl == 'artist' || splitUrl == 'search') {
             pageType = splitUrl;
             whatPageType();
         }
@@ -637,7 +638,7 @@ function clearExistingVisitTags(){
         markVisitedItems();
         pagerBtnEvents();
 
-        if (pageType == 'release') {
+        if (pageType == 'release' || pageType == 'master') {
             var pageIsSaved = pageIsInHistory(window.location.href);
             if (!pageIsSaved) {
                 addItemToHistory(window.location.href);
