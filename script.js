@@ -413,7 +413,7 @@ function createHistoryButton() {
     var btnHistory = document.createElement('a');
     btnHistory.innerText = 'History';
     btnHistory.href = '#';
-
+    btnHistory.style.color = blue;
 
     btnHistory.onclick = function(){
         createSettingsWindow();
