@@ -1,6 +1,8 @@
 # Discogs Catalog Tracker
 Userscript to keep track of releases that you view on Discogs.
 
+Currently supports **Text With Covers** view only.
+
 <img src="https://github.com/user-attachments/assets/ffe8c68a-2c8e-4955-86c8-72b72fbd6dd4">
 
 
