@@ -36,6 +36,7 @@ var filterBtn = 'filterButtonContainer_29Eug';
 var searchSortTop = 'sort_top';
 var pagerDiv = '_pager_14baz_1';
 var paginationDiv2 = 'paginationContainer_eb72D';
+var loading = 'loading_3htUj';
 
 
 var greyBtn = `
@@ -626,6 +627,22 @@ function clearExistingVisitTags(){
 
 
 
+function forceRemLoadingState() {
+
+    let stillNotLoading = 0;
+
+    var loadingDoms = document.getElementsByClassName(loading);
+    for (i=loadingDoms.length; i--;) {
+        loadingDoms[i].className -= loading;
+        stillNotLoading += 1;
+    }
+    if (stillNotLoading > 0) {
+        console.log('ctracker | Catalog is still in a loading state. Making catalog items clickable...');
+    }
+}
+
+
+
 (function() {
 
 
@@ -637,6 +654,7 @@ function clearExistingVisitTags(){
         clearExistingVisitTags();
         markVisitedItems();
         pagerBtnEvents();
+        forceRemLoadingState();
 
         if (pageType == 'release' || pageType == 'master') {
             var pageIsSaved = pageIsInHistory(window.location.href);
