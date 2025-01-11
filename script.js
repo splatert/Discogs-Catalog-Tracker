@@ -633,7 +633,7 @@ function forceRemLoadingState() {
 
     var loadingDoms = document.getElementsByClassName(loading);
     for (i=loadingDoms.length; i--;) {
-        loadingDoms[i].className -= loading;
+        loadingDoms[i].classList.remove(loading);
         stillNotLoading += 1;
     }
     if (stillNotLoading > 0) {
