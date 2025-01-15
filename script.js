@@ -36,7 +36,9 @@ var filterBtn = 'filterButtonContainer_29Eug';
 var searchSortTop = 'sort_top';
 var pagerDiv = '_pager_14baz_1';
 var paginationDiv2 = 'paginationContainer_eb72D';
-var loading = 'loading_3htUj';
+
+
+var loadingDomList = ['loading_3htUj', 'loading_TWGNB', 'loading_PJhvK'];
 
 
 var greyBtn = `
@@ -219,6 +221,10 @@ function createSettingsWindow() {
             winContainer.remove();
             if (changesWereMade) {
                 saveItems();
+                setTimeout(() => {
+                    clearExistingVisitTags();
+                    markVisitedItems();
+                }, 500);
             }
         }
     }
@@ -631,14 +637,17 @@ function forceRemLoadingState() {
 
     let stillNotLoading = 0;
 
-    var loadingDoms = document.getElementsByClassName(loading);
-    for (i=loadingDoms.length; i--;) {
-        loadingDoms[i].classList.remove(loading);
-        stillNotLoading += 1;
+    for (l in loadingDomList) {
+        var loadingDom = document.getElementsByClassName(loadingDomList[l]);
+        for (i=loadingDom.length; i--;) {
+            loadingDom[i].classList.remove(loadingDomList[l]);
+            stillNotLoading += 1;
+        }
+        if (stillNotLoading > 0) {
+            console.log('ctracker | Catalog is still in a loading state. Making catalog items clickable...');
+        }
     }
-    if (stillNotLoading > 0) {
-        console.log('ctracker | Catalog is still in a loading state. Making catalog items clickable...');
-    }
+    
 }
 
 
