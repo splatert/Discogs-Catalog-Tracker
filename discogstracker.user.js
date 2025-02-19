@@ -29,16 +29,24 @@ var historyLoaded = false;
 
 
 // HTML dom elements
-var catalogItemDom = 'title_oY1q1';
-var catalogItemDomLink = 'link_1ctor';
-var otherVersions = 'versions_1t0s2';
-var filterBtn = 'filterButtonContainer_29Eug';
-var searchSortTop = 'sort_top';
+
+// label, release, etc
+
+var loadingDomList = ['loading_3htUj', 'loading_TWGNB', 'loading_PJhvK'];
+
+var catalogItemDom = 'title_K9_iv';
+var catalogItemDomLink = 'link_wXY7O';
+var otherVersions = 'versions_Qot_k';
+var filterBtn = 'filterButtonContainer_ld5GI';
+
 var pagerDiv = '_pager_14baz_1';
 var paginationDiv2 = 'paginationContainer_eb72D';
 
+// search
+var searchSortTop = 'sort_top';
 
-var loadingDomList = ['loading_3htUj', 'loading_TWGNB', 'loading_PJhvK'];
+
+
 
 
 var greyBtn = `
@@ -663,7 +671,7 @@ function forceRemLoadingState() {
         clearExistingVisitTags();
         markVisitedItems();
         pagerBtnEvents();
-        forceRemLoadingState();
+        // forceRemLoadingState();
 
         if (pageType == 'release' || pageType == 'master') {
             var pageIsSaved = pageIsInHistory(window.location.href);
