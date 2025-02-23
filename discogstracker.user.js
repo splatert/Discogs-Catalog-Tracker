@@ -37,15 +37,9 @@ var loadingDomList = ['loading_3htUj', 'loading_TWGNB', 'loading_PJhvK'];
 var catalogItemDom = 'title_K9_iv';
 var catalogItemDomLink = 'link_wXY7O';
 var otherVersions = 'versions_Qot_k';
-var filterBtn = 'filterButtonContainer_ld5GI';
 
 var pagerDiv = '_pager_14baz_1';
 var paginationDiv2 = 'paginationContainer_eb72D';
-
-// search
-var searchSortTop = 'sort_top';
-
-
 
 
 
@@ -57,9 +51,6 @@ var greyBtn = `
     background: linear-gradient(#f2f2f2,#eaeaea);
     cursor: pointer;
 `;
-
-var redBtn = 'button-red';
-
 
 // images
 var imgVisited = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/wgALCAAQACEBASIA/8QAGAABAQADAAAAAAAAAAAAAAAABgEAAgP/2gAIAQEAAAABWWwyi5Zuf//EABoQAAIDAQEAAAAAAAAAAAAAAAABAgMTERL/2gAIAQEAAQUC7BR7UhOpjdantadrHmyWUj1D1jaf/8QAJhAAAQMBBgcBAAAAAAAAAAAAAgABERIDITEzQZEjMkJRcYGh8P/aAAgBAQAGPwJ5HAanWAzfdcunmp9pggZd8FmHugqMWcdJTs1uEPP1Zwa6903Gs6WKY/eVlnsv/8QAIBAAAgICAQUBAAAAAAAAAAAAAREAITFBkVFxsdHx8P/aAAgBAQABPyFyESMizn1C40msxT9QQ0FrLbEDIqhoxROJ9LCcbMEL7cgcRADAJsM2PXT/ADggoV5akyCiNwBzwuDZe34T6Wf/2gAIAQEAAAAQcD//xAAfEAEBAQACAQUBAAAAAAAAAAABESEAMUFRgZHB8GH/2gAIAQEAAT8QInPqoTye3ffqcMIABgDCmzy7STZGM08gJYR7mUO4nGMMBj2PbwHvz9/98zxcKYjRSI/4dLwwRooCIXMRTLjEEcmACZikqZxmyYi7xIIbVo2OMq+B/eft/rn/2Q==';
@@ -81,7 +72,7 @@ function about(){
 function loadItems(){
 
     var items = localStorage.getItem('ctracker-items');
-    
+
     if (items == null || items == '') {
         items = '[]';
     }
@@ -191,6 +182,7 @@ function ctrackerMsg(msg) {
 function createSettingsWindow() {
 
     var winContainer = document.createElement('div');
+    winContainer.style.fontFamily = 'Arial';
     winContainer.style.position = 'fixed';
     winContainer.style.top = '0'; winContainer.style.left = '0';
     winContainer.style.width = '100%'; winContainer.style.height = '100%';
@@ -198,7 +190,7 @@ function createSettingsWindow() {
     winContainer.style.zIndex = '998';
 
     var win = document.createElement('div');
-    win.style.margin = '14% auto'; win.style.padding = '10px';
+    win.style.margin = '13% auto'; win.style.padding = '10px';
     win.style.width = '50%'
     win.style.backgroundColor = 'white'; win.style.boxShadow = '0px 1px 3px black';
 
@@ -212,11 +204,11 @@ function createSettingsWindow() {
     srcLink.style.fontSize = '18px';
 
     srcLink.innerHTML = '<img style="position:relative;top:1.6px;filter: brightness(0) saturate(100%) invert(21%) sepia(92%) saturate(3344%) hue-rotate(223deg) brightness(93%) contrast(81%);" src="'+proj+'">';
-    
+
 
     var closeBtn = document.createElement('a');
     closeBtn.innerText = 'X';
-    closeBtn.href = '#';
+    closeBtn.href = '#/';
     closeBtn.style.marginLeft = '15px';
     closeBtn.style.display = 'block';
     closeBtn.style.fontWeight = 'bold';
@@ -260,7 +252,7 @@ function createSettingsWindow() {
     var ht_container = document.createElement('div');
     ht_container.style.overflowY = 'Scroll';
     ht_container.style.maxHeight = '275px';
-    
+
     var historyTable = document.createElement('table');
     historyTable.className = 'ctracker-historyTable';
     historyTable.style.borderColor = '#ccc';
@@ -290,14 +282,14 @@ function createSettingsWindow() {
 
     tr.appendChild(td1);
     tr.appendChild(td2);
-    
+
     win.appendChild(winTitle);
     win.appendChild(warningText);
 
     var saveOptions = document.createElement('div');
     saveOptions.style.display = "flex";
     saveOptions.style.marginTop = "15px";
-  
+
 
     saveOptions.innerHTML = `
     <br>
@@ -320,7 +312,7 @@ function createSettingsWindow() {
     // "import history" button
     var importHistoryBtn = document.getElementById('ctracker-importHis');
     importHistoryBtn.addEventListener('change', function(a) {
-        
+
         var file = a.target.files[0];
         var reader = new FileReader();
 
@@ -374,7 +366,7 @@ function drawHistoryItems() {
         td3.innerText = decodedUrl;
 
         var td4 = document.createElement('tr');
-        
+
 
         var a = document.createElement('a');
         a.innerText = 'Delete';
@@ -427,27 +419,15 @@ function clearAllHistory() {
 function createHistoryButton() {
     var btnHistory = document.createElement('a');
     btnHistory.innerText = 'History';
-    btnHistory.href = '#';
-    btnHistory.style.color = blue;
+    btnHistory.href = '#/';
+    btnHistory.style = 'font-family: Arial;color: white;position: fixed;bottom: 15px;right: 15px;background: rgb(15, 15, 15);padding: 5px;border-radius: 5px;';
 
     btnHistory.onclick = function(){
         createSettingsWindow();
     }
 
 
-    if (pageType != 'search') {
-        var searchFiltersBtn = document.getElementsByClassName(filterBtn)[0];
-        if (searchFiltersBtn) {
-            searchFiltersBtn.parentNode.insertBefore(btnHistory, searchFiltersBtn);
-        }
-    }
-    else  {
-        var searchTop = document.getElementsByClassName(searchSortTop)[0];
-        if (searchTop) {
-            searchTop.parentNode.insertBefore(btnHistory, searchTop);
-        }
-    }
-    
+    document.body.appendChild(btnHistory);
 }
 
 
@@ -456,12 +436,12 @@ function createHistoryButton() {
 function markVisitedItems() {
 
     console.log('ctracker | Getting dom elements...')
-    
+
     var domLink = null;
     var url = null;
 
     if (pageType == 'label' || pageType == 'artist') {
-        
+
         var catalogLinks = document.getElementsByClassName(catalogItemDom);
         for (let i=0; i<catalogLinks.length; i++) {
 
@@ -495,11 +475,11 @@ function markVisitedItems() {
 
 
 function waitForDynamicElement(element) {
-    
+
     var foundDom = false;
 
     for (let i=0; i<20; i++) {
-        
+
         if (!foundDom) {
             dom = document.getElementsByClassName(element);
             if (dom) {
@@ -508,7 +488,7 @@ function waitForDynamicElement(element) {
             else {
                 console.log('ctracker | Waiting for dynamic element...');
             }
-    
+
             if (foundDom) {
                 console.log('ctracker | Found dynamic element.');
                 return dom;
@@ -527,7 +507,7 @@ function waitForDynamicElement(element) {
 function drawIndicator(url, domLink) {
 
     console.log('ctracker | Checking if link is saved in localstorage...');
-    
+
     if (domLink) {
         var parent = domLink.parentElement;
         var siblings = parent.getElementsByClassName(catalogItemDomLink);
@@ -655,7 +635,7 @@ function forceRemLoadingState() {
             console.log('ctracker | Catalog is still in a loading state. Making catalog items clickable...');
         }
     }
-    
+
 }
 
 
