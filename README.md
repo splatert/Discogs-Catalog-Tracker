@@ -24,9 +24,9 @@ This userscript does not collect any data. It saves any URLs you visit to a tabl
 
 <img src="https://github.com/user-attachments/assets/7732996d-b93e-4c08-8dd7-7ef7fba69930">
 
-2. The link to it will be saved in your URL history which can be accessed by clicking on the "History" button shown on artist and release pages (above the discogs results box).
+2. The link to it will be saved in your URL history which can be accessed by clicking on the "History" button shown on artist and release pages (on the bottom-right corner of your screen).
 
-<img src="https://github.com/user-attachments/assets/baab34cc-b8c5-4990-96e0-3cd2de50f438">
+<img src="https://github.com/user-attachments/assets/8c40e14c-99a8-48e2-bdba-3e05b34b6ed6">
 
 3. Clicking on "History" will show a dialog that contains links to every release or artist you've clicked on. You have to option to delete unwanted links and even be able to save your entire list to a file that can be imported back to this userscript.
 
