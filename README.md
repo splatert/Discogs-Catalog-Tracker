@@ -7,7 +7,7 @@ Currently supports **Text With Covers** view only.
 
 
 ## Features
-- Keep track of links to releases and artist pages.
+- Keep track of links to releases on artist and label pages.
 - Import and export URL history.
 
 
