@@ -36,5 +36,5 @@ This userscript does not collect any data. It saves any URLs you visit to a tabl
 <img src="https://github.com/user-attachments/assets/7a6c7e99-4632-42bc-8f76-6bcbeb6a6413">
 
 
-## Troubleshooting
-The history button may not load sometimes to due to the dynamic element it loads inside of being missing. You can bump up the seconds it takes for the userscript to load in if you're experiencing slow connection issues on Discogs.
+## Note
+This script may break at any time due to Discogs updating their pages with new class names for HTML elements. When this happens, please let me know so I can update the script with the new class names.
