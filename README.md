@@ -37,4 +37,4 @@ This userscript does not collect any data. It saves any URLs you visit to a tabl
 
 
 ## Note
-This script may break at any time due to Discogs updating their pages with new class names for HTML elements. When this happens, please let me know so I can update the script with the new class names.
+This script may break at any time due to Discogs updating their pages with new class names for HTML elements. When this happens, please let me know so I can update this script.
